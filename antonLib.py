@@ -1,0 +1,127 @@
+import requests
+import json
+import random
+import string
+import session
+import createdUser
+
+#global vars
+debug = False
+
+headers = {
+    "Host": "d-apis-db.anton.app",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+    "Origin": "https://anton.app",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.91 Safari/537.36",
+    "Sec-Fetch-Site": "same-site",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
+}
+
+def defReq(url, data, authToken, path, logId=None):
+    defData = {
+        "path": path,
+        "deviceLogId": "D-2V4Z-aUdJ9leOB2RDiXu8jR0N9Hfefaz",
+        "isDebug": False,
+        "useAuthToken": True,
+        "authToken": authToken
+    }
+    data = {**defData, **data}
+
+    if logId != None:
+        data["logId"] = logId
+
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    checkResponse(response)
+    responseObj = json.loads(response.text)
+    return responseObj
+
+def getRandomString(length):
+    # choose from all lowercase letter
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return(result_str)
+
+def checkResponse(response):
+    responseObj = json.loads(response.text)
+    responseStatusText = "ok"
+    responseStatusError = "false"
+    if "status" in responseObj:
+        responseStatusText =  responseObj["status"]
+
+    elif "error" in responseObj:
+        responseStatusError =  responseObj["error"]
+
+    if debug == True:
+        print("\033[1mDebug:\033[0m")
+        print("---------------------")
+        print(f"stutusCode: {response.status_code}")
+        print(f"responseStatusText: {responseStatusText}")
+        print(f"responseText: {response.text}")
+        print("---------------------")
+    if response.status_code != 200 or responseStatusText != "ok" or responseStatusError == "true":
+        raise SystemExit(f"Request didn't work. Response Code: {response.status_code}   Response Status Text: {responseStatusText}")
+
+def loginWithCode(code):
+    data = {"params": {
+            "value": code,
+            "checkCaptcha": False
+        }}
+    
+    response = defReq(url="https://d-apis-db.anton.app/?p=login/step1/step1", data=data, path="/../server-apis-db2/apis/login/step1/step1", authToken="noStoredAuthTokenFound")
+    return(session.session(response))
+
+
+
+def createUser(name, avatar=None):
+
+    with open("defAvatar.json", "r") as avatarData:
+        avatarData = json.loads(avatarData.read()) #loads default avatar data
+    if avatar != None:
+        avatarData = avatar
+
+    data = {"params": {
+        "funnelId": getRandomString(32),
+        "type": "pupil",
+        "name": name,
+        "avatar": avatarData,
+        "grade": 1,
+        "subject": "NATDEU",
+        "howKnowAbout": "relatives",
+        "guiLanguage": "de",
+        "deviceSrc": "2V4Z"
+    }}
+
+
+    response = defReq(url="https://f-apis-db.anton.app/?p=user/create2/create", data=data, path="/../server-apis-db2/apis/user/create2/create", authToken="noStoredAuthTokenFound")
+    return createdUser.createdUser(response)
+
+
+def getEventsFromLogId(logId):
+    url = "https://apis-db-logger-s-lb-2.anton.app/apisLogger/subscribe/"
+    params = {
+        "path": "subscribe",
+        "params[logId]": logId,
+        "params[filter][name]": "subscribeUser",
+        "params[inserted]": "1970-01-01",
+        "params[readOnly]": "false",
+        "deviceLogId": "D-2V4Z-aUdJ9leOB2RDiXu8jR0N9Hfefaz"
+    }
+
+    response = requests.get(url, params=params, headers=headers)
+    checkResponse(response)
+    response = json.loads(response.text)
+    return response["events"]
+
+def getUserCode(logId):
+    events = getEventsFromLogId(logId)
+    for event in events:
+        if event["event"] == "setLoginCode":
+            return(event["value"])
+        
+def logInWithLogId(logId):
+    userCode = getUserCode(logId)
+    return(loginWithCode(userCode))
