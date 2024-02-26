@@ -1,4 +1,4 @@
-class createdUser(): #class/object for the new created user
+class createdUser():
     def __init__(self, userData):
         self.logId = userData["logId"]
         self.authToken = userData["authToken"]
