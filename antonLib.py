@@ -21,7 +21,7 @@ headers = {
     "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7"
 }
 
-def defReq(url, data, authToken, path, logId=None):
+def defReq(url, data, authToken, path, logId=None): #the default request
     defData = {
         "path": path,
         "deviceLogId": "D-2V4Z-aUdJ9leOB2RDiXu8jR0N9Hfefaz",
@@ -39,13 +39,12 @@ def defReq(url, data, authToken, path, logId=None):
     responseObj = json.loads(response.text)
     return responseObj
 
-def getRandomString(length):
-    # choose from all lowercase letter
+def getRandomString(length): #generates a random string with letters of a specific length
     letters = string.ascii_lowercase
-    result_str = ''.join(random.choice(letters) for i in range(length))
-    return(result_str)
+    resultStr = ''.join(random.choice(letters) for i in range(length))
+    return(resultStr)
 
-def checkResponse(response):
+def checkResponse(response): #checks the response to not contain an error (this code is als and i will update it)
     responseObj = json.loads(response.text)
     responseStatusText = "ok"
     responseStatusError = "false"
@@ -65,7 +64,7 @@ def checkResponse(response):
     if response.status_code != 200 or responseStatusText != "ok" or responseStatusError == "true":
         raise SystemExit(f"Request didn't work. Response Code: {response.status_code}   Response Status Text: {responseStatusText}")
 
-def loginWithCode(code):
+def loginWithCode(code): #lets you login with the login code
     data = {"params": {
             "value": code,
             "checkCaptcha": False
@@ -76,7 +75,7 @@ def loginWithCode(code):
 
 
 
-def createUser(name, avatar=None):
+def createUser(name, avatar=None): #creates a user with a default avatar
 
     with open("defAvatar.json", "r") as avatarData:
         avatarData = json.loads(avatarData.read()) #loads default avatar data
@@ -100,7 +99,7 @@ def createUser(name, avatar=None):
     return createdUser.createdUser(response)
 
 
-def getEventsFromLogId(logId):
+def getEventsFromLogId(logId): #gets events from a log id (i dont quite understand how this works, but you can get the login code from this)
     url = "https://apis-db-logger-s-lb-2.anton.app/apisLogger/subscribe/"
     params = {
         "path": "subscribe",
@@ -116,12 +115,12 @@ def getEventsFromLogId(logId):
     response = json.loads(response.text)
     return response["events"]
 
-def getUserCode(logId):
+def getUserCode(logId): #gets the latest events from the log id (which contains the password)
     events = getEventsFromLogId(logId)
     for event in events:
         if event["event"] == "setLoginCode":
             return(event["value"])
         
-def logInWithLogId(logId):
+def logInWithLogId(logId): #logs in with the login code getting the user code from the log id and then logging in with it
     userCode = getUserCode(logId)
     return(loginWithCode(userCode))
