@@ -1,7 +1,7 @@
-import requests
 import antonLib
 import avatarInfo
-import json
+import pixelPaintInfo
+from datetime import datetime
 
 class session():
     def __init__(self, sessionData):
@@ -94,3 +94,15 @@ class session():
 
         response = antonLib.defReq(url="https://e-apis-db.anton.app/?p=pixelPaint/getMetaData/get", path="/../server-apis-db2/apis/avatarSuperstar/getMetaData/get", authToken=self.authToken, logId=self.logId, data=data)
         return avatarInfo.avatarInfo(response["items"][0])
+    
+    def getPixelPaintData(self, uid):
+        data = {
+            "params": {
+                "imageIds": [
+                    uid
+                ],
+            }
+        }
+
+        response = antonLib.defReq(url="https://e-apis-db.anton.app/?p=pixelPaint/getMetaData/get", path="/../server-apis-db2/apis/pixelPaint/getMetaData/get", authToken=self.authToken, logId=self.logId, data=data)
+        return pixelPaintInfo.pixelPaintInfo(response["images"][0])
