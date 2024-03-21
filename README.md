@@ -4,16 +4,31 @@ antonLib is a python library created for interacting with the learning platform 
 
 ## Installing
 
-I havent published this package on pypi yet, so you need to download it from github or use  ```git clone https://github.com/Antonabi/antonLib.git```.  
-You have to put your python scripts in that folder you created for the source code.
+To install antonLib simply type
+
+```bash
+pip install antonLib
+```
+
+into your command prompt.
+
+To dwonload the source code you can just type this.
+
+```bash
+git clone https://github.com/Antonabi/antonLib.git
+```
 
 ### Requirements
 
-You can just go into the folder and type this: ```pip install -r requirements.txt```.
+If you downloaded the source code you have to install the requirements like this:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
-With antonLib you can make a lot of things. View the full documentation [here]("https://doclink.com").
+With antonLib you can make a lot of things. View the full documentation [here]("https://github.com/Antonabi/antonLibDoc/").
 
 ### Examples
 
@@ -69,4 +84,4 @@ session = antonLib.logInWithLogId(createdUser.logId) #logging in (you have to lo
 
 #### Full Documentation
 
-Check out the full documentation [here]("https://doclink.com").
+Check out the full documentation [here]("https://github.com/Antonabi/antonLibDoc/").

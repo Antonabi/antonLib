@@ -1,0 +1,288 @@
+{
+    "body": {
+        "type": "human",
+        "children": {
+            "human": {
+                "children": {
+                    "arms": {
+                        "c1": "blueGrey.900",
+                        "option": "skeleton"
+                    },
+                    "belt": {
+                        "c1": "yellow.700",
+                        "c2": "cyan.900",
+                        "option": "a"
+                    },
+                    "coat": {
+                        "c1": "lightGreen.600",
+                        "c2": "purple.600",
+                        "option": "vampire"
+                    },
+                    "skin": {
+                        "c1": "EFC088",
+                        "option": "a"
+                    },
+                    "vest": {
+                        "c1": "blueGrey.900",
+                        "c2": "lime.800",
+                        "c3": "purple.900",
+                        "option": "none"
+                    },
+                    "design": {
+                        "c1": "yellow.600",
+                        "c2": "lime.900",
+                        "option": "skeleton"
+                    },
+                    "gloves": {
+                        "c1": "blue.600",
+                        "c2": "orange.500",
+                        "option": "a"
+                    },
+                    "necklace": {
+                        "c1": "yellow.700",
+                        "c2": "yellow.300",
+                        "option": "i"
+                    },
+                    "neckline": {
+                        "c1": "purple.900",
+                        "c2": "cyan.700",
+                        "option": "h"
+                    }
+                }
+            },
+            "robot": {
+                "children": {
+                    "arms": {
+                        "c1": "cyan.300",
+                        "c2": "yellow.400",
+                        "option": "g"
+                    },
+                    "torso": {
+                        "c1": "brown.900",
+                        "c2": "brown.800",
+                        "option": "g"
+                    }
+                }
+            },
+            "animal": {
+                "children": {
+                    "body": {
+                        "c1": "EDA439",
+                        "c2": "CD8E61",
+                        "option": "racoon"
+                    },
+                    "coat": {
+                        "c1": "lightGreen.800",
+                        "c2": "blueGrey.600"
+                    },
+                    "vest": {
+                        "c1": "cyan.500",
+                        "c2": "orange.500",
+                        "c3": "yellow.200"
+                    },
+                    "gloves": {
+                        "c1": "pink.700"
+                    },
+                    "necklace": {
+                        "c1": "blueGrey.700",
+                        "c2": "cyan.600"
+                    }
+                }
+            },
+            "monster": {
+                "children": {
+                    "fur": {
+                        "c1": "blue.800",
+                        "option": "j"
+                    },
+                    "arms": {
+                        "c1": "grey.900",
+                        "option": "f"
+                    },
+                    "wings": {
+                        "c1": "cyan.300"
+                    }
+                }
+            }
+        }
+    },
+    "head": {
+        "type": "human",
+        "children": {
+            "human": {
+                "children": {
+                    "eyes": {
+                        "c1": "FFD454",
+                        "c2": "171305",
+                        "option": "male"
+                    },
+                    "hair": {
+                        "c1": "red.600",
+                        "option": "az"
+                    },
+                    "mask": {
+                        "c1": "cyan.700",
+                        "c2": "yellow.700",
+                        "option": "g"
+                    },
+                    "skin": {
+                        "c1": "EFC793",
+                        "option": "a"
+                    },
+                    "beard": {
+                        "c1": "301602",
+                        "option": "none"
+                    },
+                    "mouth": {
+                        "c1": "790906",
+                        "option": "friendly"
+                    },
+                    "makeup": {
+                        "c1": "brown.500",
+                        "c2": "blue.300",
+                        "c3": "blueGrey.300",
+                        "option": "none"
+                    },
+                    "earRing": {
+                        "c1": "purple.800",
+                        "c2": "pink.600",
+                        "option": "stars"
+                    },
+                    "glasses": {
+                        "c1": "blue.800",
+                        "c2": "blue.300",
+                        "option": "x"
+                    },
+                    "eyebrows": {
+                        "c1": "301602",
+                        "option": "a"
+                    },
+                    "hairBack": {
+                        "c1": "7A440A",
+                        "option": "none"
+                    },
+                    "headgear": {
+                        "c1": "lime.700",
+                        "c2": "orange.600",
+                        "c3": "brown.700",
+                        "option": "crown"
+                    },
+                    "moustache": {
+                        "c1": "DEB985"
+                    },
+                    "skinCondition": {
+                        "c1": "454545",
+                        "option": "none"
+                    }
+                }
+            },
+            "robot": {
+                "c1": "orange.800",
+                "c2": "blueGrey.500",
+                "option": "a"
+            },
+            "animal": {
+                "children": {
+                    "face": {
+                        "option": "urangutan"
+                    },
+                    "mask": {
+                        "c1": "purple.900",
+                        "c2": "cyan.200"
+                    },
+                    "glasses": {
+                        "c1": "brown.700",
+                        "c2": "blueGrey.200"
+                    },
+                    "headgear": {
+                        "c1": "grey.800",
+                        "c2": "cyan.200",
+                        "c3": "pink.300"
+                    }
+                }
+            },
+            "monster": {
+                "children": {
+                    "fur": {
+                        "c1": "cyan.500",
+                        "option": "e"
+                    },
+                    "eyes": {
+                        "c1": "cyan.500",
+                        "c2": "lightGreen.600",
+                        "option": "a_triple"
+                    },
+                    "mouth": {
+                        "c1": "blueGrey.900",
+                        "c2": "cyan.400",
+                        "option": "af"
+                    },
+                    "headgear": {
+                        "c1": "lightGreen.200",
+                        "option": "q"
+                    }
+                }
+            }
+        }
+    },
+    "legs": {
+        "type": "human",
+        "children": {
+            "human": {
+                "children": {
+                    "skin": {
+                        "c1": "E6BD91",
+                        "option": "a"
+                    },
+                    "pants": {
+                        "c1": "lightGreen.800",
+                        "c2": "pink.800",
+                        "option": "skeleton"
+                    },
+                    "shoes": {
+                        "c1": "lightGreen.700",
+                        "c2": "purple.600",
+                        "c3": "red.500",
+                        "option": "ag"
+                    },
+                    "skirt": {
+                        "c1": "orange.600",
+                        "c2": "cyan.600",
+                        "option": "skirt_xmas"
+                    },
+                    "wheelChair": {
+                        "c1": "purple.800",
+                        "c2": "lightGreen.500",
+                        "c3": "blue.300",
+                        "option": "none"
+                    }
+                }
+            },
+            "robot": {
+                "c1": "cyan.800",
+                "c2": "purple.400",
+                "option": "b"
+            },
+            "animal": {
+                "children": {
+                    "skin": {
+                        "c1": "BDD7D5",
+                        "c2": "B1C578",
+                        "option": "cow"
+                    },
+                    "shoes": {
+                        "c1": "lightGreen.600",
+                        "c2": "cyan.300",
+                        "c3": "grey.800"
+                    }
+                }
+            },
+            "monster": {
+                "c1": "cyan.300",
+                "option": "e"
+            }
+        }
+    },
+    "shadow": {},
+    "version": 2
+}
