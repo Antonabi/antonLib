@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-With antonLib you can make a lot of things. View the full documentation [here](https://github.com/Antonabi/antonLibDoc/).
+With antonLib you can make a lot of things. View the full documentation [here](https://github.com/Antonabi/antonLib/blob/main/documentation/start.md).
 
 ### Examples
 
@@ -52,8 +52,6 @@ import antonLib
 
 session = antonLib.logInWithLogId("yourLogId") #also creates a session object
 ```
-
-If you dont know what a logId is, [here](https://anotherDoclink.com) is a description.
 
 #### Pixel Paint
 
@@ -84,4 +82,4 @@ session = antonLib.logInWithLogId(createdUser.logId) #logging in (you have to lo
 
 #### Full Documentation
 
-Check out the full documentation [here](https://github.com/Antonabi/antonLibDoc/).
+Check out the full documentation [here](https://github.com/Antonabi/antonLib/blob/main/documentation/start.md).
