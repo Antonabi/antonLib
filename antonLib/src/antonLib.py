@@ -46,7 +46,7 @@ def getRandomString(length): #generates a random string with letters of a specif
     resultStr = ''.join(random.choice(letters) for i in range(length))
     return(resultStr)
 
-def checkResponse(response): #checks the response to not contain an error (this code is als and i will update it)
+def checkResponse(response): #checks the response to not contain an error (this code is ass and I will update it)
     try:
         responseObj = json.loads(response.text)
     except:
@@ -94,7 +94,11 @@ def loginWithCode(code): #lets you login with the login code
         }}
     
     response = defReq(url="https://d-apis-db.anton.app/?p=login/step1/step1", data=data, path="/../server-apis-db2/apis/login/step1/step1", authToken="noStoredAuthTokenFound")
-    return(session.session(response))
+    
+    if "recoveryOptions" in response:
+        return(createdUser.notLoggedInUser(response))
+    else:
+        return(session.session(response))
 
 
 def createUser(name, avatar=None): #creates a user with a default avatar
