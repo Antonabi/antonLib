@@ -11,3 +11,10 @@ class createdUser():
         self.howKnowAbout = self.params["howKnowAbout"]
         self.guiLanguage = self.params["guiLanguage"]
         self.deviceSrc = self.params["deviceSrc"]
+
+class notLoggedInUser():
+    def __init__(self, userData):
+        self.uniqueName = userData["uniqName"]
+        self.hasPhone = userData["recoveryOptions"]["hasPhone"]
+        self.hasEMail = userData["recoveryOptions"]["hasEMail"]
+        self.isTeacher = userData["recoveryOptions"]["hasGroupTeacher"]
