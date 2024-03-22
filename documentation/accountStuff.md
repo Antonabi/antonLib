@@ -81,3 +81,22 @@ session.howKnowAbout #how to user got to know anton app (same like grade and sub
 session.guiLanguage #language of the gui (wow) (defaults to german)
 session.deviceSrc #something about what your device is idk (I have 100 percently doxxed myself) (defaults to 2V4Z)
 ```
+
+## NotLoggedInUser
+
+When you try to log in whith a unique name instead of the login code (only works with login code not log id), you will get some info about this user instead of a simple auth error. (I dont know why anton does that)  
+
+```python
+import antonLib
+
+notLoggedInUser = antonLib.loginWithCode("uniqueName") #an example script
+```
+
+Here are the infos you get:
+
+```python
+notLoggedInUser.uniqueName #the unique name
+notLoggedInUser.hasPhone #returns True if you have your phone number set
+notLoggedInUser.hasEMail #returns True if you have your email set
+notLoggedInUser.isTeacher #returns True if the account is teacher (wow)
+```
