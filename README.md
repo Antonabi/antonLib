@@ -32,7 +32,7 @@ With antonLib you can make a lot of things. View the full documentation [here](h
 
 ### Examples
 
-Here ill list a few examples that show what the library does.
+Here I list a few examples that show what the library does.
 
 #### Logging in
 
