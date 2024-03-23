@@ -100,32 +100,45 @@ def loginWithCode(code): #lets you login with the login code
     else:
         return(session.session(response))
 
-
-def createUser(name, avatar=None): #creates a user with a default avatar
-
-    with open("defAvatar.json", "r") as avatarData:
+def createUser(name, avatar=None, grade=1, subject="NATDEU", howKnowAbout="relatives", howKnowAboutDetail=None, guiLanguage="de", isTeacher=False, surname=None, title=None, email=None, password=None): #creates a user
+    
+    with open("antonLib/src/antonLib/assets/defAvatar.json", "r") as avatarData:
         avatarData = json.loads(avatarData.read()) #loads default avatar data
     if avatar != None:
         avatarData = avatar
 
+    if isTeacher:
+        userType = "teacher"
+    else:
+        userType = "pupil"
+
     data = {"params": {
         "funnelId": getRandomString(32),
-        "type": "pupil",
+        "type": userType,
         "name": name,
         "avatar": avatarData,
-        "grade": 1,
-        "subject": "NATDEU",
-        "howKnowAbout": "relatives",
-        "guiLanguage": "de",
+        "grade": grade,
+        "subject": subject,
+        "howKnowAbout": howKnowAbout,
+        "guiLanguage": guiLanguage,
         "deviceSrc": "2V4Z"
     }}
 
-
+    if surname != None:
+        data["surname"] = surname
+    if title != None:
+        data["title"] = title
+    if howKnowAboutDetail != None:
+        data["howKnowAboutDetail"] = howKnowAboutDetail
+    if email != None:
+        data["email"] = email
+    if password != None:
+        data["password"] = password
     response = defReq(url="https://f-apis-db.anton.app/?p=user/create2/create", data=data, path="/../server-apis-db2/apis/user/create2/create", authToken="noStoredAuthTokenFound")
     return createdUser.createdUser(response)
 
 
-def getEventsFromLogId(logId): #gets events from a log id (i dont quite understand how this works, but you can get the login code from this)
+def getEventsFromLogId(logId): #gets events from a log id (I dont quite understand how this works, but you can get the login code from this)
     url = "https://apis-db-logger-s-lb-2.anton.app/apisLogger/subscribe/"
     params = {
         "path": "subscribe",
