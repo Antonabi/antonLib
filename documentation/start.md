@@ -16,7 +16,7 @@ pip install antonLib
 
 into your command prompt.
 
-To dwonload the source code you can just type this.
+To download the source code you can just type this.
 
 ```bash
 git clone https://github.com/Antonabi/antonLib.git
